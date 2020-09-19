@@ -2,25 +2,24 @@ package utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import testcases.BaseClass;
 
-public class ReadConfig extends BaseClass{
+public class ReadConfig{
 	
 	Properties prop;
 	
 	public ReadConfig() {
-		File configFile = new File("./config.properties");
+		File configFile = new File("config.properties");
 		
 		try {
 			FileInputStream fs = new FileInputStream(configFile);
 			prop =  new Properties();
 			prop.load(fs);
 		} catch (IOException ie) {
-			logger.error("Unable to read config file. Exception: " + ie);
+			System.out.println("Unable to read config file. Exception: " + ie);
 		}
 	}
 	
@@ -38,7 +37,7 @@ public class ReadConfig extends BaseClass{
 	}
 	
 	public String readChromePath() {
-		return prop.getProperty("chromepath	");
+		return prop.getProperty("chromepath");
 	}
 	
 
