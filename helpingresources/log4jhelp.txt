@@ -1,0 +1,3 @@
+https://docs.oracle.com/cd/E29578_01/webhelp/cas_webcrawler/src/cwcg_config_log4j_file.html
+1. Change value of rootlogger to get different granularity logs
+2. Change value of log4j.appender.fout.File=Log/sauceweb.log

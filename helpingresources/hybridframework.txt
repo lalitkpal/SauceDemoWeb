@@ -1,0 +1,11 @@
+1. Create Maven project
+2. Add dependencies in pom.xml file
+3. Create separate package for pageobjects
+4. Create separate package for testcases
+5. Keep all common methods and variables like driver, logger, setup and teardown in BaseClass
+6. Create separate test classes, each test class extends base class
+7. Create separate package for utilities for utils like xl reader, file reader, xml reader, json reader etc.
+8. When adding logger, make sure logger from log4j is included, check import statements
+9. Make pageobject class's constructors public as we will be creating their objects in a separate package
+10. Add a folder to keep all drivers
+11. 
