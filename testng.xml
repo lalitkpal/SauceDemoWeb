@@ -3,6 +3,11 @@
   
 <suite name="SauceDemoWeb" >
 
+<listeners>
+	<listener class-name = "utilities.createReport" />
+
+</listeners>
+
   <test name="DemoWebTest" >
   	<parameter name="browser" value="chrome"/>
     <classes>
