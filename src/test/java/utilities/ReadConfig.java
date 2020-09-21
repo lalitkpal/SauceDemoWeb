@@ -39,6 +39,10 @@ public class ReadConfig{
 	public String readChromePath() {
 		return prop.getProperty("chromepath");
 	}
+
+	public String readFirefoxPath() {
+		return prop.getProperty("firefoxpath");
+	}
 	
 
 }
