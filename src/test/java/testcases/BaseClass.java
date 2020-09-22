@@ -1,13 +1,21 @@
 package testcases;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.apache.commons.io.FileUtils;
+
 
 import utilities.ReadConfig;
 
@@ -51,6 +59,16 @@ public class BaseClass {
 	@AfterClass
 	public void teardown() {
 		driver.quit();
+	}
+	
+	public void screenCapture(WebDriver driver, String testName) throws IOException {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File target = new File("ScreenShots/" +testName+ ".png");
+		//FileHandler.copy(source,target);
+		FileUtils.copyFile(source, target);
+		logger.info("Screen shot taken");
+		
 	}
 			
 	

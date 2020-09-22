@@ -1,5 +1,7 @@
 package testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,7 +10,7 @@ import pageobjects.LoginPage;
 public class TC_LoginTest_001 extends BaseClass {
 	
 	@Test
-	public void testLogin() {
+	public void testLogin() throws IOException {
 		driver.get(baseURL);
 		logger.info("URL is opened");
 		LoginPage lp = new LoginPage(driver);
@@ -23,8 +25,9 @@ public class TC_LoginTest_001 extends BaseClass {
 			Assert.assertTrue(true);
 			logger.info("Login success");
 		} else {
-			Assert.assertTrue(false);
+			screenCapture(driver,"testLogin");
 			logger.info("Login failed");
+			Assert.assertTrue(false);	
 		}
 	}
 
