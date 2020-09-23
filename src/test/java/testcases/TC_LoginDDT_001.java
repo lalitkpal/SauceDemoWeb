@@ -14,19 +14,23 @@ public class TC_LoginDDT_001 extends BaseClass {
 	
 	@Test(dataProvider="loginData")
 	public void loginDDT(String uname, String pwd) {
-		driver.get(baseURL);
+		//driver.get(baseURL);
 		LoginPage lp = new LoginPage(driver);
 		lp.setUserName(uname);
+		logger.info("User name entered");
 		lp.setPassword(pwd);
+		logger.info("Password entered");
 		lp.clickLogin();
-		
+		logger.info("Clicked on login button");
 		
 		if(driver.findElement(By.xpath("//*[@id=\"menu_button_container\"]/div/div[3]/div/button")) != null) {
+			logger.info("Login success");
 			driver.findElement(By.xpath("//*[@id=\"menu_button_container\"]/div/div[3]/div/button")).click();
 			driver.findElement(By.xpath("//*[@id=\"logout_sidebar_link\"]")).click();
 			driver.switchTo().defaultContent();
 			Assert.assertTrue(true);
 		} else {
+			logger.info("Login failed");
 			driver.switchTo().defaultContent();
 			Assert.assertTrue(false);
 		}

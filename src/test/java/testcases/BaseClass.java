@@ -2,6 +2,7 @@ package testcases;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -54,6 +55,9 @@ public class BaseClass {
 			System.setProperty("webdriver.gecko.driver", readConfig.readFirefoxPath());
 			driver = new FirefoxDriver();
 		}
+		//Implicit wait added to handle synchronization during website flow
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get(baseURL);
 	}
 	
 	@AfterClass
