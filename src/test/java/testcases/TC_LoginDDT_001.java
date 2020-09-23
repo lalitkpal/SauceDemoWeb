@@ -13,7 +13,7 @@ import utilities.ExcelUtils;
 public class TC_LoginDDT_001 extends BaseClass {
 	
 	@Test(dataProvider="loginData")
-	public void loginDDT(String uname, String pwd) throws InterruptedException {
+	public void loginDDT(String uname, String pwd) throws InterruptedException, IOException {
 		driver.get(baseURL);
 		LoginPage lp = new LoginPage(driver);
 		lp.setUserName(uname);
@@ -32,6 +32,7 @@ public class TC_LoginDDT_001 extends BaseClass {
 			logger.info("Login success");
 			Assert.assertTrue(true);
 		} else {
+			screenCapture(driver,"TC_LoginDDT_001_"+uname+"_"+pwd);
 			lp.clickErrorButton();
 			lp.clickUserName();
 			lp.resetUserName();

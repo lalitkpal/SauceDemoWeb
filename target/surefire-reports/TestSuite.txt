@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 60.412 s <<< FAILURE! - in TestSuite
+testcases.TC_LoginTest_001.testLogin  Time elapsed: 2.841 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at testcases.TC_LoginTest_001.testLogin(TC_LoginTest_001.java:30)
+
+testcases.TC_LoginDDT_001.loginDDT[locked_out_user, secret_sauce](2)  Time elapsed: 12.827 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at testcases.TC_LoginDDT_001.loginDDT(TC_LoginDDT_001.java:42)
+
