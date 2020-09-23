@@ -27,15 +27,47 @@ public class LoginPage {
 	@CacheLookup
 	WebElement loginButton;
 	
+	@FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/h3/button")
+	@CacheLookup
+	WebElement errorButton;
+	
+	public void clickUserName() {
+		txtUserName.click();
+	}
+	
 	public void setUserName(String userName) {
 		txtUserName.sendKeys(userName);
+	}
+	
+	public void resetUserName() {
+		txtUserName.clear();
+	}
+	
+	public String userNameContent() {
+		return txtUserName.getText();
+	}
+	
+	public void clickPassword() {
+		txtPassword.click();
 	}
 	
 	public void setPassword(String pwd) {
 		txtPassword.sendKeys(pwd);
 	}
+	
+	public void resetPassword() {
+		txtPassword.clear();
+	}
+	
+	public String pwdContent() {
+		return txtPassword.getText();
+	}
 
 	public void clickLogin() {
 		loginButton.click();;
+	}
+	
+	public void clickErrorButton() {
+		errorButton.click();
 	}
 }

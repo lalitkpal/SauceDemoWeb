@@ -13,25 +13,32 @@ import utilities.ExcelUtils;
 public class TC_LoginDDT_001 extends BaseClass {
 	
 	@Test(dataProvider="loginData")
-	public void loginDDT(String uname, String pwd) {
-		//driver.get(baseURL);
+	public void loginDDT(String uname, String pwd) throws InterruptedException {
+		driver.get(baseURL);
 		LoginPage lp = new LoginPage(driver);
 		lp.setUserName(uname);
-		logger.info("User name entered");
+		logger.info("User name entered: "+uname);
 		lp.setPassword(pwd);
-		logger.info("Password entered");
+		logger.info("Password entered: "+pwd);
+		Thread.sleep(1000);
+		logger.info("Password after input is: "+lp.pwdContent());
 		lp.clickLogin();
 		logger.info("Clicked on login button");
 		
-		if(driver.findElement(By.xpath("//*[@id=\"menu_button_container\"]/div/div[3]/div/button")) != null) {
-			logger.info("Login success");
+		if(findByXpath("//*[@id=\"menu_button_container\"]/div/div[3]/div/button")) {
 			driver.findElement(By.xpath("//*[@id=\"menu_button_container\"]/div/div[3]/div/button")).click();
 			driver.findElement(By.xpath("//*[@id=\"logout_sidebar_link\"]")).click();
 			driver.switchTo().defaultContent();
+			logger.info("Login success");
 			Assert.assertTrue(true);
 		} else {
-			logger.info("Login failed");
+			lp.clickErrorButton();
+			lp.clickUserName();
+			lp.resetUserName();
+			lp.clickPassword();
+			lp.resetPassword();
 			driver.switchTo().defaultContent();
+			logger.info("Login failed");
 			Assert.assertTrue(false);
 		}
 	}
@@ -47,7 +54,7 @@ public class TC_LoginDDT_001 extends BaseClass {
 		for(int i=0;i<rowCount;i++) {
 			for(int j = 0;j<colCount;j++) {
 				loginDataArr[i][j] = ExcelUtils.getCellData(filePath, "Sheet1", i+1,j);
-				System.out.println(loginDataArr[i][j]);
+				//System.out.println(loginDataArr[i][j]);
 			}
 		}
 		

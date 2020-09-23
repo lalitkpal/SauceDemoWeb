@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -75,6 +77,21 @@ public class BaseClass {
 		
 	}
 			
+	public boolean findByXpath(String xPath) {
+		
+		
+		try {
+			driver.findElement(By.xpath(xPath));
+			return true;
+			
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			System.out.println("Element "+xPath+" not found.");
+			return false;
+		}
+		
+	}
+	
 	
 
 }
