@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;;
 
 public class LoginPage {
 	
@@ -27,8 +28,9 @@ public class LoginPage {
 	@CacheLookup
 	WebElement loginButton;
 	
-	@FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/h3/button")
+	//A variation of FindBy using how and using
 	@CacheLookup
+	@FindBy(how = How.XPATH, using = "//*[@id=\"login_button_container\"]/div/form/h3/button")
 	WebElement errorButton;
 	
 	public void clickUserName() {

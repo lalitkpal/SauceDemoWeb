@@ -21,7 +21,7 @@ public class TC_LoginTest_001 extends BaseClass {
 		logger.info("Password input success");
 		lp.clickLogin();
 		
-		if(driver.getTitle().equals("Swag Labs")) {
+		if(driver.getTitle().equals("Swap Labs")) {
 			Assert.assertTrue(true);
 			logger.info("Login success");
 		} else {
