@@ -7,3 +7,6 @@ Once installed, add new item, maven project and in the build section give absolu
 maven command "clean install".
 
 in post build actions we can add email notification.
+
+To run from github repository, add a maven project, in the code section select git and provide github repo path.
+In the build section mention pom.xml and in goals and options add maven command "clean install"
