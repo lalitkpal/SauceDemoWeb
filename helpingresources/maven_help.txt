@@ -1,0 +1,4 @@
+To run project from command line as maven build, intall maven in your system and add environment variables.
+Go to project root folder and run "mvn clean install" command
+
+We can create a bat file to move to project target folder and to run maven command. We can run the test then using the bat file.

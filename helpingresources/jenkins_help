@@ -1,0 +1,9 @@
+Install jenkins, open it in browser using localhost:8080 url
+We can add new item and freestyle project, then in Build section add command to move to project folder and then add bat file name.
+When we build this new job, it will run the test using jenkins.
+
+To create maven configuration, go to manage jenkins and add all maven related plugins.
+Once installed, add new item, maven project and in the build section give absolute path of pom.xml file. In goals and options mention
+maven command "clean install".
+
+in post build actions we can add email notification.
